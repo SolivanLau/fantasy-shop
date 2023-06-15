@@ -1,4 +1,8 @@
 const BagPage = () => {
-  return <div>BagPage</div>;
+  return (
+    <section>
+      <ul></ul>
+    </section>
+  );
 };
 export default BagPage;

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import storeReducer from '../state/features/store/storeSlice';
-
+import bagReducer from '../state/features/bag/bagSlice';
 // 1. CREATE STORE
 
 // 1. init store (contains obj with reducer obj... syntax craze)
@@ -20,9 +20,10 @@ import storeReducer from '../state/features/store/storeSlice';
 //
 
 // 3. import feature reducers using name as property and default export
-
+// 3.  DONE head over to StoreContainer.jsx
 export const store = configureStore({
   reducer: {
     store: storeReducer,
+    bag: bagReducer,
   },
 });

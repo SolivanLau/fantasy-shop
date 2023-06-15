@@ -219,13 +219,43 @@ ul {
   list-style-type: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 80dvw;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.btn {
+  padding: 4px;
+  border-radius: 50%;
+  border: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
 /* -------------------------- NAV -------------------------- */
+nav {
+  margin-bottom: 3rem;
+}
 nav .wrapper {
   display: flex;
   justify-content: space-between;
 }
 .navLinks {
   display: flex;
+  gap: 1rem;
 }
 nav a {
   display: block;
@@ -235,4 +265,78 @@ nav a {
 
 nav svg {
   fill: brown;
+}
+/* -------------------------- STORE CSS -------------------------- */
+.storeFlexContainer {
+  display: flex;
+  justify-content: space-between;
+}
+/* -------------------------- STORE ITEMS CSS -------------------------- */
+
+.storeTable {
+  border-collapse: collapse;
+}
+.storeItem {
+  background-color: rgba(35, 35, 35, 0.601);
+  transition: 0.2s ease all;
+  cursor: pointer;
+}
+
+.storeItem td {
+  padding: 1rem 0;
+  text-align: center;
+}
+.storeItem h4 {
+  text-align: justify;
+}
+.selectedItem {
+  background-color: green;
+}
+
+/* -------------------------- STORE DISPLAY CSS -------------------------- */
+.storeDisplay {
+  height: 450px;
+  width: 30dvw;
+  padding: 1.5rem;
+  background-color: rgba(35, 35, 35, 0.601);
+
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+/* STATS */
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.statsContainer p {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+}
+.statsContainer svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* BTN CONTAINER */
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+/* INFO */
+.infoContainer {
+  grid-column-start: 1;
+  grid-column-end: end;
+}
+
+.infoContainer p {
+  margin-top: 1rem;
+  font-size: 1.3rem;
 }

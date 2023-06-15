@@ -1,10 +1,19 @@
 import StoreContainer from '../components/StoreContainer';
+import StoreDisplay from '../components/StoreDisplay';
 
 const StorePage = () => {
   return (
-    <section>
-      <h2>store</h2>
-      <StoreContainer />
+    <section className="storePage">
+      <div className="wrapper">
+        <h2>store</h2>
+
+        <div className="storeFlexContainer">
+          {/* STORE ITEMS */}
+          <StoreContainer />
+          {/* CURRENT ITEMS */}
+          <StoreDisplay />
+        </div>
+      </div>
     </section>
   );
 };
