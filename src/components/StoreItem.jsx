@@ -1,4 +1,6 @@
+// redux
 import { useDispatch, useSelector } from 'react-redux';
+// store funcs
 import { selectItem } from '../state/features/store/storeSlice';
 // STORE ITEM: quick look at ALL items - on click updates store state (selected item)
 

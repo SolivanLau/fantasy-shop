@@ -22,6 +22,7 @@ import bagReducer from '../state/features/bag/bagSlice';
 // 3. import feature reducers using name as property and default export
 // 3.  DONE head over to StoreContainer.jsx
 export const store = configureStore({
+  // reducing ALL SLICES/ FEATURES
   reducer: {
     store: storeReducer,
     bag: bagReducer,

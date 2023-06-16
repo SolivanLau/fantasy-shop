@@ -15,7 +15,14 @@ const bagSlice = createSlice({
       const itemToBag = action.payload;
       state.bagItems = [...state.bagItems, itemToBag];
     },
-    incAmount: (state, action) => {
+    removeFromBag: (state, action) => {
+      const itemToRemoveId = action.payload;
+
+      state.bagItems = state.bagItems.filter(
+        (item) => item.id !== itemToRemoveId
+      );
+    },
+    incItemAmount: (state, action) => {
       const itemInBag = state.bagItems.find(
         (item) => item.id === action.payload
       );
@@ -23,10 +30,19 @@ const bagSlice = createSlice({
         itemInBag.amount = itemInBag.amount + 1;
       }
     },
+    decItemAmount: (state, action) => {
+      const itemInBag = state.bagItems.find(
+        (item) => item.id === action.payload
+      );
+      if (itemInBag.amount > 0) {
+        itemInBag.amount = itemInBag.amount - 1;
+      }
+    },
   },
 });
 
 // EXPORT ACTIONS
-export const { addToBag, incAmount } = bagSlice.actions;
+export const { addToBag, removeFromBag, incItemAmount, decItemAmount } =
+  bagSlice.actions;
 // EXPORT REDUCER TO STORE
 export default bagSlice.reducer;

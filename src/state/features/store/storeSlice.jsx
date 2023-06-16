@@ -33,12 +33,12 @@ const storeSlice = createSlice({
       // find obj via id in storeItems state
       const userSelectedItemId = action.payload || null;
 
-      const userSlectedItem = state.storeItems.find(
+      const userSelectedItem = state.storeItems.find(
         (item) => item.id === userSelectedItemId
       );
 
       // set to selectedItem
-      state.selectedItem = userSlectedItem;
+      state.selectedItem = userSelectedItem;
     },
     stockInc: (state, action) => {
       const itemId = action.payload;
