@@ -340,3 +340,37 @@ nav svg {
   margin-top: 1rem;
   font-size: 1.3rem;
 }
+
+/* -------------------------- BAGPAGE CSS -------------------------- */
+/* .bagPage .wrapper {
+  width: 70%;
+} */
+.bagPage .wrapper {
+  max-width: 800px;
+}
+
+.bagBody {
+  min-height: 60dvh;
+  background-color: grey;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FOOTER */
+.totalPriceContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalPrice {
+  display: block;
+}
+
+.buyBtn {
+  display: block;
+  margin-top: 1rem;
+  width: 100%;
+}

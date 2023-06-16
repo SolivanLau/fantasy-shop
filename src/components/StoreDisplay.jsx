@@ -20,10 +20,6 @@ const StoreDisplay = () => {
   //   bag state
   const { bagItems } = useSelector((state) => state.bag);
 
-  useEffect(() => {
-    console.log(bagItems);
-  }, [bagItems]);
-
   // VALIDATES  if store item has enough stock BEFORE user interaction
   const isInStock = (itemId) => {
     const storeItemStock =
@@ -32,7 +28,15 @@ const StoreDisplay = () => {
     return storeItemStock > 0 ? true : false;
   };
 
-  // PURCHASE
+  const checkBag = () => {
+    bagItems.forEach((item) => {
+      console.log(`${item.title}`);
+      if (item.amount === 0 || item.amount < 1) {
+        dispatch(removeFromBag(item.id));
+      }
+    });
+  };
+  // Add to bag
   const handleAddToBag = (id) => {
     if (isInStock(id)) {
       // ADD ITEM LOGIC
@@ -62,7 +66,7 @@ const StoreDisplay = () => {
     }
   };
 
-  // SELL BACK
+  // Remove from bag
   const handleRemoveFromBag = (id) => {
     const itemInBag = bagItems.find((item) => item.id === id);
 
@@ -74,13 +78,7 @@ const StoreDisplay = () => {
         dispatch(decItemAmount(id));
         // increase stock
         dispatch(stockInc(id));
-
-        const updatedItem = bagItems.find((item) => item.id === id);
-        if (updatedItem.amount === 0) {
-          // remove item from bag
-          console.log('need to remove');
-          dispatch(removeFromBag(id));
-        }
+        checkBag();
       } else {
         // remove item from bag
         dispatch(removeFromBag(id));
@@ -90,6 +88,11 @@ const StoreDisplay = () => {
       console.log(`looks like ${selectedItem.title} isn't in your bag!`);
     }
   };
+
+  // checks if any item's amount is zero, removes if necessary
+  useEffect(() => {
+    checkBag();
+  }, [bagItems]);
 
   if (!selectedItem) {
     return <article className="storeDisplay"></article>;
